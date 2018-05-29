@@ -21,7 +21,6 @@ exports.bsc = function ( req, res ){
 	request(options, function (error, response, body) {
 		if (error) throw new Error(error);
 		
-		res.setHeader('Access-Control-Allow-Origin', origin );
 		res.status(200).send( body );
 	});
 };
