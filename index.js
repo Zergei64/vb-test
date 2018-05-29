@@ -8,12 +8,17 @@ var app = express();
   //.set('view engine', 'ejs')
   //.get('/', (req, res) => res.render('pages/index'))
 
+app.configure(function () {
+	app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
+	app.use(express.bodyParser());
+});
+
 app.get("/api", function(req, res) {
-	res.status(200);
+	res.status(200).send("Test");
 });
 
 app.route("/api").get( function(req, res) {
-	res.status(200); 
+	res.status(200).send("Test2"); 
 });
   
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
