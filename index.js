@@ -27,10 +27,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/api", function(req, res) {
-	//res.status(200).send("Test");
-	bsConnection.bsc;
-});
+app.get("/api", bsConnection.bsc );
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
