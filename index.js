@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require("body-parser");
 const path = require('path')
 const PORT = process.env.PORT || 3000
 
@@ -10,7 +11,7 @@ var app = express();
 
 
 //app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
-app.use(express.bodyParser());
+app.use(bodyParser.json());
 
 
 app.get("/api", function(req, res) {
