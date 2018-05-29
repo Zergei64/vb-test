@@ -15,4 +15,4 @@ app.get("/api", function(req, res) {
 
 app.route("/api").get( function(req, res) {
 	res.status(200); 
-);
+});
