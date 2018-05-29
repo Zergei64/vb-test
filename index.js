@@ -11,7 +11,11 @@ app.use(bodyParser.json());
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'https://*.visual.force.com');
+	var origin = req.headers.origin;
+	if( origin.indexOf("visual.force") && origin.indexOf("votacall") ){
+		res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+	}
+    //res.setHeader('Access-Control-Allow-Origin', 'https://*.visual.force.com');
 	//res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 
     // Request methods you wish to allow
