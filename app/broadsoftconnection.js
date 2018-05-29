@@ -10,16 +10,16 @@ exports.bsc = function ( req, res ){
 	var method = req.headers.method;
 	
 	var authString = "Basic " + Buffer.from(username + ':' + password).toString('base64');
+	
+	var request = require("request");
+	var options = { method: type,
+		url: method,
+		headers: { authorization: authString }
+	};
 
-	// jQuery CORS example
-	$.ajax({
-		"async": true,
-		"headers": {
-			"authorization": authString,
-		},
-		"type": type,
-		"url": method
-	}).done(function (data) {
-		res.status(200).send( data );
+	request(options, function (error, response, body) {
+		if (error) throw new Error(error);
+
+		res.status(200).send( {"body":body,"response":response} );
 	});
 };
