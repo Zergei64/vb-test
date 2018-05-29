@@ -9,7 +9,7 @@ var app = express();
   //.get('/', (req, res) => res.render('pages/index'))
 
 
-app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
+//app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
 app.use(express.bodyParser());
 
 
