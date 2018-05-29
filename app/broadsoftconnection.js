@@ -1,4 +1,4 @@
-function( req, res ){
+exports.bsc = function ( req, res ){
 	console.log(req);
 	console.log(res);
 	
@@ -16,10 +16,8 @@ function( req, res ){
 			"authorization": authString,
 		},
 		"type": type,
-		"dataType": "jsonp",
-		"jsonp" : false,
 		"url": method
 	}).done(function (data) {
 		res.status(200).send( data );
 	});
-}
+};

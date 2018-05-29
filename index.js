@@ -5,13 +5,6 @@ const PORT = process.env.PORT || 3000
 
 var app = express();
 var bsConnection = require('./app/broadsoftconnection');
-  //.use(express.static(path.join(__dirname, 'public')))
-  //.set('views', path.join(__dirname, 'views'))
-  //.set('view engine', 'ejs')
-  //.get('/', (req, res) => res.render('pages/index'))
-
-
-//app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
 app.use(bodyParser.json());
 
 // Add headers
