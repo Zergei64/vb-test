@@ -8,6 +8,7 @@ exports.bsc = function ( req, res ){
 	var password = req.headers.password;
 	var type = req.headers.type;
 	var method = req.headers.method;
+	var origin = req.headers.origin;
 	
 	var authString = "Basic " + Buffer.from(username + ':' + password).toString('base64');
 	
@@ -19,7 +20,8 @@ exports.bsc = function ( req, res ){
 
 	request(options, function (error, response, body) {
 		if (error) throw new Error(error);
-
+		
+		res.setHeader('Access-Control-Allow-Origin', origin );
 		res.status(200).send( body );
 	});
 };
