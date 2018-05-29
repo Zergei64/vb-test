@@ -4,6 +4,7 @@ const path = require('path')
 const PORT = process.env.PORT || 3000
 
 var app = express();
+var bsConnection = require('./app/broadsoftconnection');
   //.use(express.static(path.join(__dirname, 'public')))
   //.set('views', path.join(__dirname, 'views'))
   //.set('view engine', 'ejs')
@@ -34,7 +35,8 @@ app.use(function (req, res, next) {
 });
 
 app.get("/api", function(req, res) {
-	res.status(200).send("Test");
+	//res.status(200).send("Test");
+	bsConnection(req,res);
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
