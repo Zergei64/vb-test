@@ -1,5 +1,7 @@
 exports.bsc = function ( req, res ){
+	console.log("---REQ---");
 	console.log(req);
+	console.log("---RES---");
 	console.log(res);
 	
 	var username = req.headers.username;
@@ -7,7 +9,7 @@ exports.bsc = function ( req, res ){
 	var type = req.headers.type;
 	var method = req.headers.method;
 	
-	var authString = "Basic " + btoa(username + ':' + password);
+	var authString = "Basic " + Buffer.from(username + ':' + password).toString('base64');
 
 	// jQuery CORS example
 	$.ajax({
