@@ -1,9 +1,4 @@
 exports.bsc = function ( req, res ){
-	console.log("---REQ---");
-	console.log(req);
-	console.log("---RES---");
-	console.log(res);
-	
 	var username = req.headers.username;
 	var password = req.headers.password;
 	var type = req.headers.type;
