@@ -16,6 +16,6 @@ exports.bsc = function ( req, res ){
 	request(options, function (error, response, body) {
 		if (error) throw new Error(error);
 		
-		res.status(200).send( body );
+		res.status(200).send( {"response":response,"body":body} );
 	});
 };
