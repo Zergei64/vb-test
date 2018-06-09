@@ -12,7 +12,9 @@ app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
 	var origin = req.headers.origin;
+	console.log(origin);
 	if( origin != undefined && origin.indexOf("visual.force") && origin.indexOf("votacall") ){
+		console.log("--------------------");
 		res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 	}
 
