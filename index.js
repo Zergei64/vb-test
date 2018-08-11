@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 3000
 
 var app = express();
 var bsConnection = require('./app/broadsoftconnection');
+var router = express.Router(); // create our router
+
 app.use(bodyParser.json());
 
 // Add headers
@@ -36,3 +38,9 @@ app.get("/api", bsConnection.bsc );
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
+//Test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/', function(req, res) {
+    res.json({
+        message: 'hooray! welcome to our api!'
+    });
+});
