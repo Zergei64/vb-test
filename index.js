@@ -34,9 +34,10 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/api", bsConnection.bsc );
-
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+//Middleware to use for all requests
+router.use(function(req, res, next) {
+    next();
+});
 
 //Test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
@@ -44,3 +45,9 @@ router.get('/', function(req, res) {
         message: 'hooray! welcome to our api!'
     });
 });
+
+app.get("/api", bsConnection.bsc );
+app.use('/app', router);
+
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
